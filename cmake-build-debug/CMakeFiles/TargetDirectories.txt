@@ -1,0 +1,3 @@
+/mnt/c/Users/hsinr/hsinner/compNet/cmake-build-debug/CMakeFiles/compNetRepo.dir
+/mnt/c/Users/hsinr/hsinner/compNet/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/hsinr/hsinner/compNet/cmake-build-debug/CMakeFiles/rebuild_cache.dir

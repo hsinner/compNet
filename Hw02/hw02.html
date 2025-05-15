@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission???</title>
+</head>
+<body>
+    <h1>31-Jul-2027</h1>
+
+    <h2>DNS Trace</h2>
+    <pre>
+    dig . NS
+    dig +norec @a.root-servers.net hackthissite.org NS
+    dig +norec @a2.org.afilias-nst.org hackthissite.org NS
+    dig +norec @c.ns.buddyns.com hackthissite.org NS
+    dig +norec @c.ns.buddyns.com hackthissite.org A
+    hackthissite.org.       3600    IN      A       137.74.187.102
+    hackthissite.org.       3600    IN      A       137.74.187.104
+    hackthissite.org.       3600    IN      A       137.74.187.100
+    hackthissite.org.       3600    IN      A       137.74.187.103
+    hackthissite.org.       3600    IN      A       137.74.187.101
+    rose auth server ip : 205.251.193.152
+    </pre>
+
+<h2>DNS vs HTTP</h2>
+<p>Using DNS is better at first glance because for a DNS query, an IP address for the server is directly sent back. Once you get the IP, you can just head over there. Compared to HTTP, where it receives a redirect response (30x) prompting the client to go to another URL. This process essentially means two HTTP requests for one redirection. So the ultimate answer is that DNS has less overhead and requires only one single query, while HTTP involves headers and two HTTP requests (Two RTTs).</p>
+
+<p><strong>Best regards,</strong><br>No Name</p>
+
+</body>
+</html>
