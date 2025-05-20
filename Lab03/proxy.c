@@ -165,9 +165,24 @@ void handle_client(int client_fd) {
     }
 
     char request[MAXDATASIZE];
+    // snprintf(request, sizeof(request),
+    //          "GET %s %s\r\n"
+    //          "Host: %s\r\n"
+    //          "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36\r\n"
+    //          "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8\r\n"
+    //          "Accept-Language: en-US,en;q=0.9\r\n"
+    //          "Connection: close\r\n\r\n",
+    //          path, version, host);
     snprintf(request, sizeof(request),
-             "GET %s %s\r\nHost: %s\r\nConnection: close\r\n\r\n",
-             path, version, host);
+         "GET %s %s\r\n"
+         "Host: %s\r\n"
+         "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0\r\n" // A common Firefox UA
+         "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8\r\n" // Common Firefox accept
+         "Accept-Language: en-US,en;q=0.5\r\n"
+         "Connection: close\r\n" // Your proxy handles this
+         // DO NOT add Accept-Encoding unless your proxy can handle compressed responses
+         "\r\n",
+         path, version, host);
     send(remote_fd, request, strlen(request), 0);
 
     while ((n = recv(remote_fd, buf, MAXDATASIZE, 0)) > 0) {
